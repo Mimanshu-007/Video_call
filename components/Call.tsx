@@ -356,13 +356,13 @@ function Videos(props: { channelName: string; AppID: string }) {
   };
 
   const handleStartScreenShare = async () => {
-    const screenTrack = await <AgoraRTC className="createScreenVideoTrack"></AgoraRTC>();
+    const screenTrack = await AgoraRTC.createScreenVideoTrack();
     await client.unpublish(localCameraTrack);
     await client.publish(screenTrack);
   };
 
   const handleStopScreenShare = async () => {
-    const screenTrack = await <AgoraRTC className="createScreenVideoTrack"></AgoraRTC>();
+    const screenTrack = await AgoraRTC.createScreenVideoTrack();
     await client.unpublish(screenTrack);
     await client.publish(localCameraTrack);
   };
